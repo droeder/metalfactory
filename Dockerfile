@@ -5,8 +5,11 @@ RUN apk update && apk upgrade
 WORKDIR /install
 
 COPY . /install
-RUN ./prepare.sh
 
+
+RUN pip install autopep8 bandit pylint mypy
+RUN python3 -m pip install --upgrade pip
+RUN pip install -r dev_requirements.txt
 
 
 ENV FLASK_APP "main.py"
@@ -17,6 +20,5 @@ ENV PYTHONPATH "."
 WORKDIR /install/app
 RUN adduser -D worker
 USER worker
-
 
 CMD [ "flask", "run", "--host", "0.0.0.0", "--port", "5000" ]
