@@ -15,7 +15,7 @@ ENV FLASK_DEBUG "0"
 ENV PYTHONPATH "."
 
 WORKDIR /install/app
-RUN useradd worker
+RUN adduser -D worker
 USER worker
 
 CMD [ "flask", "run", "--host", "0.0.0.0", "--port", "5000" ]
