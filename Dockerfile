@@ -17,6 +17,7 @@ ENV FLASK_ENV "development"
 ENV FLASK_DEBUG "0"
 ENV PYTHONPATH "."
 
+
 WORKDIR /install/app
 RUN adduser -D worker
 USER worker
