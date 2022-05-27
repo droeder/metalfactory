@@ -78,7 +78,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           #tags: ${{ steps.meta.outputs.tags }}
           #tags: containers.HOSTNAME/droeder/metalfactory/metalfactory:main-$(date +%s)
-          tags: ghcr.io/droeder/metalfactory:main-1234
+          tags: ghcr.io/droeder/metalfactory:main-$(date +%s)
           labels: ${{ steps.meta.outputs.labels }}
 
       # Sign the resulting Docker image digest except on PRs.
