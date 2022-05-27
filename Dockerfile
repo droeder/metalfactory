@@ -3,9 +3,7 @@ FROM python:3.10-alpine as base
 RUN apk update && apk upgrade
 
 WORKDIR /install
-
 COPY . /install
-
 
 RUN pip install autopep8 bandit pylint mypy
 RUN python3 -m pip install --upgrade pip
